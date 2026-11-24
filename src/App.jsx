@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import products from "./data/products";
 import ProductCard from "./components/ProductCard";
 import SearchBar from "./components/SearchBar";
@@ -25,6 +25,15 @@ function App() {
     setSortOrder("default");
   };
 
+  // Debounce: wait 300ms after the user stops typing
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchText);
+    }, 300);
+
+    return () => clearTimeout(timer); // cleanup
+  }, [searchText]);
+
   // Calculated during rendering, not stored in state
   const filteredProducts = [...products]
     .filter((p) =>
@@ -36,6 +45,11 @@ function App() {
       if (sortOrder === "high-low") return b.price - a.price;
       return 0;
     });
+
+  // Update the browser tab title when the number of results changes
+  useEffect(() => {
+    document.title = `CvSU Mini Store (${filteredProducts.length} results)`;
+  }, [filteredProducts.length]);
 
   return (
     <div className="app">

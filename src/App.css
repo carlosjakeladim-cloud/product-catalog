@@ -29,3 +29,62 @@ body {
   gap: 16px;
   margin-top: 20px;
 }
+
+/* ---------- Lab 4: search bar ---------- */
+
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.search-bar input {
+  flex: 2 1 220px;
+}
+
+.search-bar select {
+  flex: 1 1 150px;
+}
+
+.search-bar input,
+.search-bar select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.search-bar button {
+  flex: 0 0 auto;
+  background: #c62828;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background: #8e0000;
+}
+
+.result-count {
+  margin-top: 16px;
+  font-weight: bold;
+  color: #555;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #777;
+  background: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .search-bar {
+    flex-direction: column;
+  }
+}

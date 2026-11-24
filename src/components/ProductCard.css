@@ -7,7 +7,12 @@
     text-align: center;
 }
 
+/* Out of stock: gray card, but the status label stays red */
 .product-card.out-of-stock {
+    background: #f1f1f1;
+}
+
+.product-card.out-of-stock>*:not(.status) {
     opacity: 0.5;
     filter: grayscale(100%);
 }
@@ -39,7 +44,7 @@
 }
 
 .status.out {
-    color: #c62828;
+    color: #d50000;
     font-weight: bold;
 }
 
